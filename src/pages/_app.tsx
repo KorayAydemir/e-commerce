@@ -1,3 +1,4 @@
+import { SiteProvider } from "@components/contexts/SiteContext";
 import "@components/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -12,7 +13,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 />
                 <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
             </Head>
-            <Component {...pageProps} />
+            <SiteProvider>
+                <Component {...pageProps} />
+            </SiteProvider>
         </>
     );
 }

@@ -1,8 +1,9 @@
 import SiteSearch from "@components/components/home/SiteSearch";
+import { SiteContext } from "@components/contexts/SiteContext";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { FaHamburger, FaHeart, FaShoppingBag } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { FaHeart, FaShoppingBag } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 //import { Inter } from 'next/font/google'
@@ -10,6 +11,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 export const Header = () => {
     const [isNavHidden, setIsNavHidden] = useState("-translate-y-full");
+    const siteData = useContext(SiteContext);
+    console.log(siteData);
 
     const navigationHandler = () => {
         setIsNavHidden((prev) =>
