@@ -5,14 +5,13 @@ import Link from "next/link";
 import { useContext, useState } from "react";
 import { FaHeart, FaShoppingBag } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { HeaderNav } from "./HeaderNav";
 
 //import { Inter } from 'next/font/google'
 //const inter = Inter({ subsets: ['latin'] })
 
 export const Header = () => {
     const [isNavHidden, setIsNavHidden] = useState("-translate-y-full");
-    const siteData = useContext(SiteContext);
-    console.log(siteData);
 
     const navigationHandler = () => {
         setIsNavHidden((prev) =>
@@ -20,9 +19,18 @@ export const Header = () => {
         );
     };
 
+    const Backdrop = ({ show, onClick }) => {
+        return show ? (
+            <div
+                className="fixed inset-0 bg-black opacity-50 z-10"
+                onClick={onClick}
+            ></div>
+        ) : null;
+    };
+
     return (
         <>
-            <header className="flex flex-row justify-around h-14 items-center bg-[#0f0f0f] z-10 relative">
+            <header className="flex flex-row justify-around h-14 items-center bg-[#0f0f0f] z-30  relative">
                 <div>
                     <div className="flex flex-row ">
                         <Image
@@ -48,24 +56,11 @@ export const Header = () => {
                     </button>
                 </div>
             </header>
-            <nav
-                className={`w-full max-h-full p-2 bg-[#141416] ${isNavHidden} transition-all duration-500 ease-in-out md:hidden z-5 relative drop-shadow `}
-            >
-                <ul className="flex flex-col items-center text-white">
-                    <li>
-                        <Link href="/">New & Featured</Link>
-                    </li>
-                    <li>
-                        <Link href="/">Men</Link>
-                    </li>
-                    <li>
-                        <Link href="/">Women</Link>
-                    </li>
-                    <li>
-                        <Link href="/">Kids</Link>
-                    </li>
-                </ul>
-            </nav>
+            <Backdrop
+                show={isNavHidden === "translate-y-0"}
+                onClick={() => setIsNavHidden("-translate-y-full")}
+            />
+            <HeaderNav isNavHidden={isNavHidden} />
         </>
     );
 };
