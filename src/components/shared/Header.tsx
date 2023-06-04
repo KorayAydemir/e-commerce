@@ -41,7 +41,7 @@ export const Header = () => {
 
     return (
         <>
-            <header className="flex flex-row justify-around h-14 items-center bg-[#0b0c0d] z-30  relative mx-auto max-w-[1690px] px-[20px]">
+            <header className="flex flex-row justify-between h-14 items-center bg-[#0b0c0d] z-30  relative mx-auto max-w-[1590px] px-[20px] w-full">
                 <div className="flex flex-row ">
                     <Image
                         src="/images/ow_logo.svg"
@@ -58,8 +58,8 @@ export const Header = () => {
                     <SiteSearch />
                 </div>
 
-                <nav className="text-white mr-2 hidden lg:block w-full">
-                    <ul className="flex flex-row justify-evenly ">
+                <nav className="text-white hidden lg:block min-w-[350px] w-1/6">
+                    <ul className="flex flex-row justify-between">
                         {largeScreenCategories}
                     </ul>
                 </nav>
