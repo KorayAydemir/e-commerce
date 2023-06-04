@@ -35,7 +35,7 @@ export default function SiteSearch() {
 
     return (
         <input
-            className="rounded-sm max-w-sm m-0-auto border-2  border-gray-500 bg-[#2b2a33] py-0.5 pl-1 text-white "
+            className="rounded-full max-w-sm m-0-auto border-2  border-gray-500 bg-[#2b2a33] py-0.5 pl-2 text-white "
             type="search"
             placeholder="Search..."
             {...register("searchQuery", { required: true })}

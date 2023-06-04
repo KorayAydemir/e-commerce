@@ -59,7 +59,7 @@ export const HeaderNav = ({ isNavHidden }: { isNavHidden: string }) => {
     return (
         <>
             <nav
-                className={`w-full max-h-full bg-[#141416] ${isNavHidden} transition-all duration-500 ease-in-out md:hidden absolute drop-shadow z-20`}
+                className={`w-full max-h-full bg-[#141416] ${isNavHidden} transition-all duration-500 ease-in-out lg:hidden absolute drop-shadow z-20`}
             >
                 <menu className="flex flex-col text-white ">{categories}</menu>
             </nav>

@@ -20,30 +20,64 @@ export const Header = () => {
         );
     };
 
+    const dummyCategories = [
+        {
+            title: "New & Featured",
+        },
+        {
+            title: "Men",
+        },
+        {
+            title: "Women",
+        },
+        {
+            title: "Kids",
+        },
+    ];
+
+    const largeScreenCategories = dummyCategories.map((category) => {
+        return <li key={category.title}>{category.title}</li>;
+    });
+
     return (
         <>
-            <header className="flex flex-row justify-around h-14 items-center bg-[#0f0f0f] z-30  relative">
-                <div>
-                    <div className="flex flex-row ">
-                        <Image
-                            src="/images/ow_logo.svg"
-                            alt="logo"
-                            width={26}
-                            height={26}
-                        />
-                        <span className="ml-1 hidden md:block">OVERWATCH</span>
-                    </div>
+            <header className="flex flex-row justify-around h-14 items-center bg-[#0b0c0d] z-30  relative mx-auto max-w-[1690px] px-[20px]">
+                <div className="flex flex-row ">
+                    <Image
+                        src="/images/ow_logo.svg"
+                        alt="logo"
+                        width={26}
+                        height={26}
+                    />
+                    <span className="ml-1 hidden md:block text-white">
+                        OVERWATCH
+                    </span>
                 </div>
 
-                <SiteSearch />
+                <div className="lg:hidden ">
+                    <SiteSearch />
+                </div>
+
+                <nav className="text-white mr-2 hidden lg:block w-full">
+                    <ul className="flex flex-row justify-evenly ">
+                        {largeScreenCategories}
+                    </ul>
+                </nav>
+
                 <div className="flex flex-row">
+                    <div className="hidden lg:block mr-4">
+                        <SiteSearch />
+                    </div>
                     <div>
                         <FaHeart className="block my-auto h-full text-xl text-white" />
                     </div>
                     <div className="ml-2">
                         <FaShoppingBag className="block my-auto h-full text-xl text-white" />
                     </div>
-                    <button className="ml-2" onClick={navigationHandler}>
+                    <button
+                        className="ml-2 lg:hidden"
+                        onClick={navigationHandler}
+                    >
                         <GiHamburgerMenu className="block my-auto h-full text-xl text-white" />
                     </button>
                 </div>
