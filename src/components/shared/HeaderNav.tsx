@@ -44,7 +44,7 @@ export const HeaderNav = ({ isNavHidden }: { isNavHidden: string }) => {
             <>
                 <li
                     onClick={() => navigationHandler(category.title)}
-                    className="relative bg-black transition-all"
+                    className="relative bg-slate-950 transition-all py-4"
                     key={category.title}
                 >
                     <button className="w-full block ">{category.title}</button>
@@ -59,7 +59,9 @@ export const HeaderNav = ({ isNavHidden }: { isNavHidden: string }) => {
     return (
         <>
             <nav
-                className={`w-full max-h-full bg-[#141416] ${isNavHidden} transition-all duration-500 ease-in-out lg:hidden absolute drop-shadow z-20`}
+                className={`w-full max-h-full bg-[#141416] ${isNavHidden} transition-all duration-500 ease-in-out lg:hidden absolute drop-shadow-lg z-20
+                    drop-shadow-[0px_-25px_45px_grey]
+                `}
             >
                 <menu className="flex flex-col text-white ">{categories}</menu>
             </nav>
