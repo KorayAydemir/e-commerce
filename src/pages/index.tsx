@@ -1,4 +1,5 @@
 import { Products } from "@components/components/home/Products";
+import WideLayout from "@components/components/layouts/layout_wide";
 import { Header } from "@components/components/shared/Header";
 
 export default function Home({ productsData }: any) {
@@ -6,7 +7,9 @@ export default function Home({ productsData }: any) {
         <>
             <Header />
             <section className="mt-6">
-                <Products productsData={productsData} />
+                <WideLayout>
+                    <Products productsData={productsData} />
+                </WideLayout>
             </section>
         </>
     );
