@@ -1,4 +1,12 @@
-export const Backdrop = ({ show, onClickAction }) => {
+import { MouseEventHandler } from "react";
+
+export const Backdrop = ({
+    show,
+    onClickAction,
+}: {
+    show: boolean;
+    onClickAction: MouseEventHandler<HTMLDivElement>;
+}) => {
     console.log(show);
     return show ? (
         <div
