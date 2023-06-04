@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { FaHeart, FaShoppingBag } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { HeaderNav } from "./HeaderNav";
+import { Backdrop } from "./Backdrop";
 
 //import { Inter } from 'next/font/google'
 //const inter = Inter({ subsets: ['latin'] })
@@ -17,15 +18,6 @@ export const Header = () => {
         setIsNavHidden((prev) =>
             prev === "-translate-y-full" ? "translate-y-0" : "-translate-y-full"
         );
-    };
-
-    const Backdrop = ({ show, onClick }) => {
-        return show ? (
-            <div
-                className="fixed inset-0 bg-black opacity-50 z-10"
-                onClick={onClick}
-            ></div>
-        ) : null;
     };
 
     return (
@@ -58,7 +50,7 @@ export const Header = () => {
             </header>
             <Backdrop
                 show={isNavHidden === "translate-y-0"}
-                onClick={() => setIsNavHidden("-translate-y-full")}
+                onClickAction={() => setIsNavHidden("-translate-y-full")}
             />
             <HeaderNav isNavHidden={isNavHidden} />
         </>

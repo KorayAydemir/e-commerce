@@ -1,6 +1,7 @@
 import { SiteContext } from "@components/contexts/SiteContext";
 import Link from "next/link";
 import { useContext, useState } from "react";
+
 const dummyCategories = [
     {
         title: "New & Featured",

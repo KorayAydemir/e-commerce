@@ -3,6 +3,7 @@ import { IoFilterSharp } from "react-icons/io5";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 import { SingularProduct } from "./SingularProduct";
 import { useState } from "react";
+import { Backdrop } from "../shared/Backdrop";
 
 export const Products = ({ productsData }: any) => {
     const [filterState, setFilterState] = useState("hidden");
@@ -12,28 +13,15 @@ export const Products = ({ productsData }: any) => {
         uniqueProductCategories.add(product.category);
     });
 
-    // using non unique one for now to show more categoires
-    const procateg = productsData?.products.map((product: any) => {
-        return product.category;
-    });
-
-    // const productsCategories = Array.from(uniqueProductCategories).map(
-    //     (cat: string) => {
-    //         return (
-    //             <div key={cat} className="text-white">
-    //                 {cat}
-    //             </div>
-    //         );
-    //     }
-    // );
-
-    const productsCategories = procateg.map((cat: string) => {
-        return (
-            <div key={cat} className="font-bold">
-                {cat}
-            </div>
-        );
-    });
+    const productsCategories = Array.from(uniqueProductCategories).map(
+        (cat: string) => {
+            return (
+                <div key={cat} className="font-bold">
+                    {cat}
+                </div>
+            );
+        }
+    );
 
     const products = productsData?.products.map((product: any) => {
         return <SingularProduct product={product} key={product.id} />;
@@ -73,6 +61,13 @@ export const Products = ({ productsData }: any) => {
                         <span className="text-white mr-1">Filters</span>
                         <IoFilterSharp className="text-white text-xl my-auto" />
                     </div>
+                    <Backdrop
+                        show={filterState === "block"}
+                        onClickAction={() => {
+                            setFilterState("hidden");
+                            console.log("rrr");
+                        }}
+                    />
                     <div className="flex flex-row inline">
                         <span className="text-white mr-1">Sort By</span>
                         <RiArrowDownSLine className="text-white text-xl my-auto" />
@@ -81,7 +76,7 @@ export const Products = ({ productsData }: any) => {
             </div>
             <div className="flex flex-row">
                 {SideBar}
-                <div className="flex-1 grid grid-cols-1 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 m-0">
+                <div className="flex-1 grid grid-cols-1 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 m-0">
                     {products}
                 </div>
             </div>
