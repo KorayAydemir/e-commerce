@@ -7,6 +7,7 @@ import { FaHeart, FaShoppingBag } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { HeaderNav } from "./HeaderNav";
 import { Backdrop } from "./Backdrop";
+import { HeaderCartButton } from "./HeaderCartButton";
 
 //import { Inter } from 'next/font/google'
 //const inter = Inter({ subsets: ['latin'] })
@@ -71,9 +72,7 @@ export const Header = () => {
                     <div>
                         <FaHeart className="block my-auto h-full text-xl text-white" />
                     </div>
-                    <div className="ml-2">
-                        <FaShoppingBag className="block my-auto h-full text-xl text-white" />
-                    </div>
+                    <HeaderCartButton />
                     <button
                         className="ml-2 lg:hidden"
                         onClick={navigationHandler}

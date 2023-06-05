@@ -5,6 +5,7 @@ export default function Document() {
         <Html lang="en">
             <Head></Head>
             <body className="bg-[#0e0f10]">
+                <div id="overlays"></div>
                 <Main />
                 <NextScript />
             </body>
